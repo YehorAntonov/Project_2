@@ -1,10 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel='stylesheet' href='style.css'>
+    <script src="bundle.js"></script>
 </head>
 <body>
+
+
+<header class="header">
+    <a href="#" class="header__logo">
+        <img src="images/logo.png" width="300px" height="180px" alt="logo"> </a>
+
+    <nav class="header__nav">
+        <a href="#" class="header__nav--link">HOME</a>
+        <a href="#" class="header__nav--link">PAGE2</a>
+        <a href="#" class="header__nav--link">PAGE3</a>
+    </nav>
+
+
+    <div class="header__btn">
+        <input type="checkbox" class="checkbox" id="chk">
+        <label  class="label" for="chk">
+            <img  class="fas fa-sun" src="images/dark.png" width="21px" height="21px">
+            <img  class="fas fa-moon" src="images/sunny.png" width="21px" height="21px">
+            <div class="ball"></div>
+        </label>
+
+        <a href="#" class="header__languages link">
+            <img src="images/language.png">
+        </a>
+        <a href="#" class="header__seating link">
+            <img src="images/settings.png">
+        </a>
+        <a href="#" class="header__loginLogout link">
+            <img src="images/login.png">
+        </a>
+    </div>
+
+
+</header>
+<div class="social-panel-container">
+    <div class="social-panel">
+        <p>Created with <i class="fa fa-heart"></i> by
+            <a target="_blank" href="https://deveducation.com/uk/">DevEducation Team</a></p>
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+        <ul>
+            <li>
+                <a href="#" target="_blank">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<button class="floating-btn">
+    Get in Touch
+</button>
+
 
 </body>
 </html>
