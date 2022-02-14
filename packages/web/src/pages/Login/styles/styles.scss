@@ -1,0 +1,105 @@
+@import "vars";
+@import "singIn";
+
+html {
+  box-sizing: border-box;
+  user-select: none;
+  font-family: Prompt;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+  color: $color-text-light;
+}
+
+body {
+  margin: 0;
+  background-color: $bg-light;
+}
+
+input{
+  outline: none;
+  border: none;
+}
+
+button{
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.header{
+  height: 100px;
+  &__logo{
+    width: 15%;
+    height: 100%;
+  }
+  &__block-dropdown{
+    width: 130px;
+    height: 50%;
+    display: inline-block;
+    float: right;
+    margin: 25px 7%;
+  }
+}
+
+.block-dropdown{
+  &__locl, &__theme{
+    width: 50px;
+    height: 50px;
+    background-color: $bg-dropdown;
+    display: inline-block;
+    border-radius: 10px;
+  }
+  &__theme{
+    float: right;
+  }
+}
+
+.theme{
+  display: flex;
+  flex-direction: column;
+  &__light,&__dark{
+    cursor: pointer;
+    margin: 7px;
+    width: 36px;
+    height: 36px;
+  }
+  &__dark{
+    overflow: hidden;
+  }
+  &__line{
+    width: 50px;
+    display: none;
+  }
+}
+
+.locl{
+  &__en,&__ru{
+    cursor: pointer;
+    font-family: Play;
+    font-size: 26px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  &__ru{
+    background-color: $bg-dropdown;
+    display: none;
+  }
+}
+.change-btn{
+  border-radius: 10px 10px 0 0;
+  
+}
+.show-locl{
+  display: block;
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid $color-line;
+}
+
+.show-theme{
+  height: 99px;
+}

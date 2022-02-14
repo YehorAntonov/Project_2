@@ -1,0 +1,87 @@
+
+.form{
+    width: 31%;
+    height: 60vh;
+    background-color: $bg-form-light;
+    border-radius: 10px;
+    margin:10vh auto;
+    &__title{
+        padding-top: 10px;
+        font-family: Prompt;
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 73px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    &__block{
+        width: 82%;
+        margin: auto;
+    }
+    &__btn{
+       border-radius: 7px;
+       margin: 6% 25%;
+       width: 50%;
+       height: 55px;
+       background-color: $bg-btn-light;
+       color: $color-text-btn;
+       font-family: Play;
+       font-size: 36px;
+       box-shadow: 5px 6px 2px 0px rgba(0, 0, 0, 0.7);
+
+    }
+}
+.block{
+    &__text-login, &__text-password{
+        margin: 0;
+        font-style: normal;
+        font-weight: 400;
+    }
+    &__field{
+        width: 100%;
+        height: 45px;
+        box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        font-size: large;
+        margin-bottom: 20px;
+    }
+    &__info{
+        margin-top:10px;
+        text-align: right;
+        font-size: 20px
+    }
+}
+
+.password{
+    &__field{
+        width: 100%;
+        height: 45px;
+        box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+        border-radius: 7px;
+        font-size: large;
+        margin-bottom: 20px;
+    }
+    &__img{
+        position: absolute;
+        margin-left: -40px;
+        margin-top: 10px;
+        cursor: pointer;
+        width: 25px;
+	    height: 25px;
+	    background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat;
+    }
+}
+
+.view-change {
+	background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat;
+}
+
+.info{
+    &__link{
+        color: #1915F0;
+        &:hover{
+            color: rgb(111, 12, 111);
+        }
+    }
+}
