@@ -1,13 +1,4 @@
-import './styles.scss';
+import './styles/main.scss';
+// import { testFunc } from './helpers/test';
 
-interface Interface {
-  qwe: boolean;
-}
-
-class Class implements Interface {
-  qwe: boolean;
-}
-
-const qwe = new Class();
-
-console.log(qwe);
+// testFunc();
