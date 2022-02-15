@@ -1,6 +1,3 @@
-@import "../../helper/vars.scss";
-@import "mainPage";
-
 html {
   box-sizing: border-box;
   user-select: none;
@@ -23,6 +20,7 @@ body {
 input{
   outline: none;
   border: none;
+  color: black;
 }
 
 button{
@@ -33,14 +31,14 @@ button{
 
 .header{
   height: 100px;
-  border-bottom: 3px solid #D0D0D0;
   &__logo{
     width: 15%;
     height: 100%;
-    background: url(../../../assets/img/logo.png) no-repeat;
+    background: url(../../assets/img/logo.png) no-repeat;
     display: inline-block;
   }
   &__block-dropdown{
+    width: 130px;
     height: 50%;
     display: inline-block;
     float: right;
@@ -49,26 +47,15 @@ button{
 }
 
 .block-dropdown{
-  display: flex;
-  &__locl, &__theme, &__settings, &__logout{
+  &__locl, &__theme{
     width: 50px;
     height: 50px;
-    margin: 0 5px;
     background-color: $bg-dropdown;
     display: inline-block;
     border-radius: 10px;
   }
-  &__settings{
-    width: 35px;
-    height: 35px;
-    margin: auto;
-    background: url(../../../assets/img/icons/settings.png) no-repeat;
-  }
-  &__logout{
-    width: 35px;
-    height: 35px;
-    margin: auto;
-    background: url(../../../assets/img/icons/logout.png) no-repeat;
+  &__theme{
+    float: right;
   }
 }
 
@@ -83,7 +70,8 @@ button{
   }
   &__light{
     margin-left: 5px;
-    background: url(../../../assets/img/icons/sun.png) no-repeat;
+    background: url(../../assets/img/icons/sun.png) no-repeat;
+
   }
   &__dark{
     display: none;
@@ -107,11 +95,10 @@ button{
     display: none;
   }
 }
-
 .change-btn{
   border-radius: 10px 10px 0 0;
+  
 }
-
 .show-locl{
   display: block;
   border-radius: 0 0 10px 10px;
@@ -126,5 +113,5 @@ button{
 .dark-bg{
   display: block;
   margin: 7px 9px;
-  background: url(../../../assets/img/icons/dark.png) no-repeat;
+  background: url(../../assets/img/icons/dark.png) no-repeat;
 }

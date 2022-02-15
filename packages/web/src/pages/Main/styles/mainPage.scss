@@ -1,10 +1,16 @@
 .main{
-    height: 80vh;
     margin-top: 2%;
     &__panel{
         display: flex;
         float: right;
         margin-right: 5%;
+    }
+    &__content{
+        width: 100%;
+        margin-top: 5%;
+        float: right;
+        display: flex;
+        position: absolute;
     }
 }
 
@@ -14,6 +20,7 @@
         height: 45px;
         background-color: $bg-panel;
         border-radius: $border-radius-panel;
+        z-index: 9999;
     }
     &__bd{
         margin: 0 30px;
@@ -48,6 +55,9 @@
     }
     &__mongodb{
         display: none;
+        &:hover{
+            color: $color-hover-dropdown;
+        }
     }
     &__arrow{
         width: 25px;
@@ -81,18 +91,113 @@
 }
 
 .fields{
-    color: #807E7E;
+    color: $color-dropdown;
+    &:hover{
+        color: $color-hover-dropdown;
+    }
 }
+
 .changeHeigth{
     height: auto;
 }
 
 .show-dropdown{
+    z-index: 9999;
+    position: relative;
     display: block;
-    color: #807E7E;
+    color: $color-dropdown;
 }
 
 .rotateArrow{
     transform: rotate(180deg);
 }
 
+.content{
+    &__panel{
+        width: 15%;
+        height: fit-content;
+        margin-left: 2%;
+        background-color: rgba(72, 90, 86, 0.3);
+        border-radius: $border-radius-panel;
+    }
+    &__main-content{
+        width: 80%;
+        float: right;
+        margin: 0 5% 0 2%;
+        background-color: #E7E7E7;
+        border-radius: $border-radius-panel;
+    }
+}
+
+.panel{
+    &__create, &__update, &__delete, &__clear{
+        width: 90%;
+        height: 42px;
+        border-radius: $border-radius-panel;
+        color: black;
+        font-size: 24px;
+        margin: 5%;
+        &:hover{
+            background-color: $bg-hover;
+        }
+    }
+}
+
+.main-content{
+    &__fields, &__info{
+        width: 100%;
+        height: 60px;
+        background-color: #48645E;
+        display: flex;
+        border-radius: 7px 7px 0 0;
+        font-size: 24px;
+    }
+    &__no-info{
+        padding: 5%;
+        text-align: center;
+        font-size: xx-large;
+        color: black;
+        display: none;
+    }
+}
+.fields, .info{
+    &__id, &__age, &__city, &__number, &__email, &__first, &__last, &__company{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid #474747;
+        height: 100%;
+    }
+    &__id, &__age{
+        width: 8%;
+    }
+    &__city{
+        width: 10%;
+    }
+    &__number, &__email{
+        width: 22%;
+    }
+    &__first, &__last, &__company{
+        width: 15%;
+    }
+    &__company{
+        border: none;
+    }
+}
+
+.info{
+    background-color: rgba(156, 226, 211, 0.3);
+    border-radius: 0;
+    &:hover{
+        cursor: pointer;
+        background-color: $bg-hover;
+    }
+    &__id, &__age, &__city, &__number, &__email, &__first, &__last, &__company{
+        border-right: 1px solid #B4B4B4;
+        color: black;
+    }
+}
+
+.show-info{
+    display: block;
+}
