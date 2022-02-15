@@ -1,0 +1,98 @@
+.main{
+    height: 80vh;
+    margin-top: 1%;
+    &__panel{
+        display: flex;
+        float: right;
+        margin-right: 5%;
+    }
+}
+
+.panel{
+    &__bd, &__sort{
+        width: 200px;
+        height: 45px;
+        background-color: $bg-panel;
+        border-radius: $border-radius-panel;
+    }
+    &__bd{
+        margin: 0 30px;
+    }
+}
+
+.form{
+    &__input{
+        width: 350px;
+        height: 45px;
+        color: #343333;
+        background-color: $bg-panel;
+        border-radius: $border-radius-panel;
+        font-size: large;
+    }
+    &__submit{
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        margin: 12px -35px;
+        background: url(../../../assets/img/icons/glass.png) no-repeat;
+    }
+}
+
+.bd{
+    &__mysql, &__mongodb{
+        font-size: 24px;
+        color: black;
+        margin: 10px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    &__mongodb{
+        display: none;
+    }
+    &__arrow{
+        width: 25px;
+        height: 25px;
+        float: right;
+        margin: 10px;
+        background: url(../../../assets/img/icons/arrow.png) no-repeat;
+    }
+}
+
+.sort{
+    &__name{
+        font-size: 24px;
+        color: black;
+        margin: 10px;
+        display: inline-block;
+    }
+    &__arrow{
+        width: 25px;
+        height: 25px;
+        float: right;
+        margin: 10px;
+        background: url(../../../assets/img/icons/arrow.png) no-repeat;
+    }
+    &__fields{
+        cursor: pointer;
+        margin: 5px;
+        font-size: 24px;
+        display: none;
+    }
+}
+
+.fields{
+    color: #807E7E;
+}
+.changeHeigth{
+    height: auto;
+}
+
+.show-dropdown{
+    display: block;
+    color: #807E7E;
+}
+
+.rotateArrow{
+    transform: rotate(180deg);
+}
+

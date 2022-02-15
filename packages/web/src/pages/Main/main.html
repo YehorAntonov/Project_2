@@ -8,18 +8,46 @@
 </head>
 <body>
   <header class="header">
-    <img class="header__logo" src="../img/logo.jpg" alt="logo">
+    <div class="header__logo"></div>
     <section class="header__block-dropdown block-dropdown" id="drop">
       <section class="block-dropdown__locl locl" id="locl-block">
         <div class="locl__en" id="en">EN</div>
         <div class="locl__ru" id="ru">RU</div>
       </section>
       <section class="block-dropdown__theme theme" id="theme">
-        <img class="theme__light" src="" data-theme id="light">
+        <div class="theme__light" data-theme id="light"></div>
         <div class="theme__line" id="line"></div>
-        <img class="theme__dark" src="../img/temp.jpg" data-theme id="dark">
+        <div class="theme__dark" data-theme id="dark"></div>
       </section>
+      <button class="block-dropdown__settings"></button>
+      <button class="block-dropdown__logout"></button>
     </section>
   </header>
+  <main class="main">
+    <section class="main__panel panel" id="panel">
+      <form action="" class="panel__form form">
+        <input type="text" placeholder="First name or Last name" class="form__input">
+        <button type="submit" class="form__submit"></button>
+      </form>
+      <section class="panel__bd bd" id="sectionDB">
+        <div class="bd__mysql" id="mysql">MySQL</div>
+        <button class="bd__arrow" id="db"></button>
+        <div class="bd__mongodb" id="mongoDB">MongoDB</div>
+      </section>
+      <section class="panel__sort sort" id="sortSection">
+        <div class="sort__name">Id</div>
+        <button class="sort__arrow" id="sorting"></button>
+        <section class="sort__fields" id="fields">
+          <div class="fields" id="first">First name</div>
+          <div class="fields" id="last">Last name</div>
+          <div class="fields" id="age">Age</div>
+          <div class="fields" id="city">City</div>
+          <div class="fields" id="number">Number</div>
+          <div class="fields" id="email">Email</div>
+          <div class="fields" id="company">Company</div>
+        </section>
+      </section>
+    </section>
+  </main>
 </body>
 </html>

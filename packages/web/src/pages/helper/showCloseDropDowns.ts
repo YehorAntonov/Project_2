@@ -1,25 +1,4 @@
-import { getNode } from "../utils";
-
-
-export function showPassword(e) {
-    const idValue = e.target.id;
-    if (idValue === 'view') {
-        helperPasswords(idValue, 'password');
-    } else if (idValue === 'confirm-view') {
-        helperPasswords(idValue, 'password-confirm');
-    }
-}
-
-function helperPasswords(id, input) {
-    if (getNode(input).getAttribute('type') == 'password') {
-        getNode(id).classList.add('view-change');
-        getNode(input).setAttribute('type', 'text');
-    } else {
-        getNode(id).classList.remove('view-change');
-        getNode(input).setAttribute('type', 'password');
-    }
-}
-
+import { getNode } from './utils';
 
 export function showCloseDropDowns() {
     let node, countLocal = 0, countTheme = 0;
@@ -46,12 +25,15 @@ export function showCloseDropDowns() {
             if (countTheme % 2 !== 0) {
                 getNode('theme').classList.add('show-theme');
                 getNode('line').classList.add('show-locl');
+                getNode('dark').classList.add('dark-bg');
             } else {
                 getNode('theme').classList.remove('show-theme');
+                getNode('dark').classList.remove('dark-bg');
             }
         } else {
             countTheme = 0;
             getNode('theme').classList.remove('show-theme');
+            getNode('dark').classList.remove('dark-bg');
         }
     }
 }

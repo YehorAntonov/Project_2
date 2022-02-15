@@ -1,6 +1,7 @@
-import { showCloseDropDowns, viewPassword } from './helpers/headerHelper';
 import './styles/styles.scss';
-import { addListener } from './utils';
+import { showCloseDropDowns} from '../helper/showCloseDropDowns';
+import { viewPassword } from './helpers/headerHelper';
+import { addListener } from '../helper/utils';
 
 document.addEventListener('DOMContentLoaded', function () {
     showCloseDropDowns();

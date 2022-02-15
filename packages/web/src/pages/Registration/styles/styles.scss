@@ -1,5 +1,5 @@
 @import "vars";
-@import "registration";
+@import 'registration';
 
 html {
   box-sizing: border-box;
@@ -13,7 +13,6 @@ html {
   box-sizing: inherit;
   -webkit-tap-highlight-color: transparent;
   color: $color-text-light;
-  font-family: Prompt;
 }
 
 body {
@@ -24,6 +23,7 @@ body {
 input{
   outline: none;
   border: none;
+  color: black;
 }
 
 button{
@@ -37,6 +37,8 @@ button{
   &__logo{
     width: 15%;
     height: 100%;
+    background: url(../../../assets/img/logo.png) no-repeat;
+    display: inline-block;
   }
   &__block-dropdown{
     width: 130px;
@@ -69,8 +71,12 @@ button{
     width: 36px;
     height: 36px;
   }
+  &__light{
+    margin-left: 5px;
+    background: url(../../../assets/img/icons/sun.png) no-repeat;
+  }
   &__dark{
-    overflow: hidden;
+    display: none;
   }
   &__line{
     width: 50px;
@@ -103,4 +109,11 @@ button{
 
 .show-theme{
   height: 99px;
+  display: block;
+}
+
+.dark-bg{
+  display: block;
+  margin: 7px 9px;
+  background: url(../../../assets/img/icons/dark.png) no-repeat;
 }
