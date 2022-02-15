@@ -1,0 +1,117 @@
+html {
+  box-sizing: border-box;
+  user-select: none;
+  font-family: Prompt;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+  color: $color-text-light;
+}
+
+body {
+  margin: 0;
+  background-color: $bg-light;
+}
+
+input{
+  outline: none;
+  border: none;
+  color: black;
+}
+
+button{
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.header{
+  height: 100px;
+  &__logo{
+    width: 15%;
+    height: 100%;
+    background: url(../../assets/img/logo.png) no-repeat;
+    display: inline-block;
+  }
+  &__block-dropdown{
+    width: 130px;
+    height: 50%;
+    display: inline-block;
+    float: right;
+    margin: 25px 7%;
+  }
+}
+
+.block-dropdown{
+  &__locl, &__theme{
+    width: 50px;
+    height: 50px;
+    background-color: $bg-dropdown;
+    display: inline-block;
+    border-radius: 10px;
+  }
+  &__theme{
+    float: right;
+  }
+}
+
+.theme{
+  display: flex;
+  flex-direction: column;
+  &__light,&__dark{
+    cursor: pointer;
+    margin: 7px;
+    width: 36px;
+    height: 36px;
+  }
+  &__light{
+    margin-left: 5px;
+    background: url(../../assets/img/icons/sun.png) no-repeat;
+
+  }
+  &__dark{
+    display: none;
+  }
+  &__line{
+    width: 50px;
+    display: none;
+  }
+}
+
+.locl{
+  &__en,&__ru{
+    cursor: pointer;
+    font-family: Play;
+    font-size: 26px;
+    text-align: center;
+    padding: 10px 0;
+  }
+  &__ru{
+    background-color: $bg-dropdown;
+    display: none;
+  }
+}
+.change-btn{
+  border-radius: 10px 10px 0 0;
+  
+}
+.show-locl{
+  display: block;
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid $color-line;
+}
+
+.show-theme{
+  height: 99px;
+  display: block;
+}
+
+.dark-bg{
+  display: block;
+  margin: 7px 9px;
+  background: url(../../assets/img/icons/dark.png) no-repeat;
+}
