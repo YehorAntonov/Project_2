@@ -49,11 +49,12 @@
     &__mysql, &__mongodb{
         font-size: 24px;
         color: black;
-        margin: 10px;
+        padding: 10px;
         display: inline-block;
         cursor: pointer;
     }
     &__mongodb{
+        border-top: 1px solid black;
         display: none;
         &:hover{
             color: $color-hover-dropdown;
@@ -84,16 +85,19 @@
     }
     &__fields{
         cursor: pointer;
-        margin: 5px;
         font-size: 24px;
         display: none;
     }
 }
 
 .fields{
-    color: $color-dropdown;
-    &:hover{
-        color: $color-hover-dropdown;
+    border-top: 1px solid black;
+    &__fields{
+        margin: 5px;
+        color: $color-dropdown;
+        &:hover{
+            color: $color-hover-dropdown;
+        }
     }
 }
 
