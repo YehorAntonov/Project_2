@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo"></div>
+    <section class="header__block-dropdown block-dropdown" id="drop">
+      <section class="block-dropdown__locl locl" id="locl-block">
+        <div class="locl__en" id="en">EN</div>
+        <div class="locl__ru" id="ru">RU</div>
+      </section>
+      <section class="block-dropdown__theme theme" id="theme">
+        <div class="theme__light" data-theme id="light"></div>
+        <div class="theme__line" id="line"></div>
+        <div class="theme__dark" data-theme id="dark"></div>
+      </section>
+    </section>
+  </header>
+  <form action="" class="form">
+    <h1 class="form__title">Sing In</h1>
+    <section class="form__block block">
+      <h2 class="block__text-login">Login</h2>
+      <input type="email" class="block__field">
+      <h2 class="block__text-password">Password</h2>
+      <section class="block__password password">
+        <input type="password" class="password__field" id="password">
+        <a href="#" class="password__img" id="view"></a>
+      </section>
+      <button class="form__btn" type="submit">Login</button>
+      <div class="block__info info">Need an account?
+        <a class="info__link" href="./registration.html">Register now</a>
+      </div>
+    </section>
+  </form>
+</body>
+</html>
