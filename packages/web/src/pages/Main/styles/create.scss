@@ -1,0 +1,120 @@
+/*register change password*/
+/*.create{
+  &__window{
+    background-color: #071E22;
+  }
+
+}
+
+
+
+.window {
+  &__close-btn {
+    background-color: #071E22;
+  }
+    &__footer{
+    &--creat {
+      background-color: #9CE2D3;
+    }
+  }
+}*/
+.create {
+  font-family: Roboto;
+  width: 100%;
+  font-family: "Prompt", sans-serif;
+  padding-top: 0;
+
+  &__window {
+    background-color: #79B791;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    width: 372px;
+    padding: 10px;
+    border-radius: 15px;
+    font-family: "Prompt", sans-serif;
+  }
+}
+.window {
+  text-align: left;
+
+  &__title {
+    text-align: center;
+    color: #FFFCFC;
+    margin-top: -5px;
+    margin-bottom: -10px;
+  }
+
+  &__text {
+    font-family: "Prompt", sans-serif;
+    text-align: center;
+    font-size: large;
+    color: #FFFCFC;
+  }
+
+  &__close-btn {
+    background-color: #79B791;
+    font-size: larger;
+    display: flex;
+    justify-content: right;
+    margin-left: 350px;
+    color: #FFFFFF;
+    border: none;
+
+    &__close-btn:hover {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__id, &__first, &__age, &__city, &__number, &__email, &__company, &__last {
+    text-align: left;
+    padding-left: 25px;
+    color: #FFFCFC;
+
+    &--input, &--input, &--input, &--input, &--input, &--input, &--input {
+      width: 317px;
+      height: 33px;
+      background: #FFFFFF;
+      border-radius: 7px;
+      margin: 10px auto 10px 25px;
+    }
+  }
+
+  &__footer {
+    padding-bottom: 10px;
+
+
+    &--create {
+      background: #EDF6F8;
+      color: #514D4D;
+      width: 317px;
+      height: 38px;
+      border-radius: 7px;
+      border: none;
+      box-shadow: 0px 2px 2px;
+      font-family: Prompt;
+      font-size: 24px;
+      line-height: 36px;
+      margin: 20px auto 20px 25px;
+    }
+
+    &--create:hover {
+      box-shadow: 1px 2px 3px black;
+    }
+
+    &--errorinf {
+      text-align: center;
+      color: red;
+      margin: 0;
+    }
+  }
+}
+.valid {
+  border: none;
+}
+.invalid  {
+  border-color: red;
+}
+input:focus {
+  background-color: #AFD3CC;
+}

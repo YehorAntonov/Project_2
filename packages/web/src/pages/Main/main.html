@@ -5,81 +5,211 @@
   <title>Title</title>
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700,800&display=swap"
         rel="stylesheet">
+  <link rel="stylesheet" href="styles/settings.scss">
 </head>
 <body>
-  <header class="header">
-    <div class="header__logo"></div>
-    <section class="header__block-dropdown block-dropdown" id="drop">
-      <section class="block-dropdown__locl locl" id="locl-block">
-        <div class="locl__en" id="en">EN</div>
-        <div class="locl__ru" id="ru">RU</div>
-      </section>
-      <section class="block-dropdown__theme theme" id="theme">
-        <div class="theme__light" data-theme id="light"></div>
-        <div class="theme__line" id="line"></div>
-        <div class="theme__dark" data-theme id="dark"></div>
-      </section>
-      <button class="block-dropdown__settings"></button>
-      <div class="block-dropdown__prompt" title="dvsdfvsdfv">Settings</div>
-      <button class="block-dropdown__logout"></button>
+<header class="header">
+  <div class="header__logo"></div>
+  <section class="header__block-dropdown block-dropdown" id="drop">
+    <section class="block-dropdown__locl locl" id="locl-block">
+      <div class="locl__en" id="en">EN</div>
+      <div class="locl__ru" id="ru">RU</div>
     </section>
-  </header>
-  <main class="main">
-    <section class="main__panel panel" id="panel">
-      <form action="" class="panel__form form">
-        <input type="text" placeholder="First name or Last name" class="form__input">
-        <button type="submit" class="form__submit"></button>
+    <section class="block-dropdown__theme theme" id="theme">
+      <div class="theme__light" data-theme id="light"></div>
+      <div class="theme__line" id="line"></div>
+      <div class="theme__dark" data-theme id="dark"></div>
+    </section>
+    <button class="block-dropdown__settings"></button>
+    <div class="block-dropdown__prompt" title="dvsdfvsdfv">Settings</div>
+    <button class="block-dropdown__logout"></button>
+  </section>
+</header>
+<main class="main">
+  <section class="main__panel panel" id="panel">
+    <form action="" class="panel__form form">
+      <input type="text" placeholder="First name or Last name" class="form__input">
+      <button type="submit" class="form__submit"></button>
+    </form>
+    <section class="panel__bd bd" id="sectionDB">
+      <div class="bd__mysql" id="mysql">MySQL</div>
+      <button class="bd__arrow" id="db"></button>
+      <div class="bd__mongodb" id="mongoDB">MongoDB</div>
+    </section>
+    <section class="panel__sort sort" id="sortSection">
+      <div class="sort__name">Id</div>
+      <button class="sort__arrow" id="sorting"></button>
+      <section class="sort__fields fields" id="fields">
+        <div class="fields__fields" id="first">First name</div>
+        <div class="fields__fields" id="last">Last name</div>
+        <div class="fields__fields" id="age">Age</div>
+        <div class="fields__fields" id="city">City</div>
+        <div class="fields__fields" id="number">Number</div>
+        <div class="fields__fields" id="email">Email</div>
+        <div class="fields__fields" id="company">Company</div>
+      </section>
+    </section>
+  </section>
+  <section class="main__content content">
+    <section class="content__panel panel">
+      <button class="panel__create" id="create">Create</button>
+      <button class="panel__update" id="update">Update</button>
+      <button class="panel__delete" id="delete">Delete</button>
+      <button class="panel__clear" id="clear">ClearAll</button>
+    </section>
+    <section class="content__main-content main-content">
+      <section class="main-content__fields fields">
+        <div class="fields__id">Id</div>
+        <div class="fields__first">First name</div>
+        <div class="fields__last">Last name</div>
+        <div class="fields__age">Age</div>
+        <div class="fields__city">City</div>
+        <div class="fields__number">Number</div>
+        <div class="fields__email">Email</div>
+        <div class="fields__company">Company</div>
+      </section>
+      <!-- <section class="main-content__info info">
+        <div class="info__id">Id</div>
+        <div class="info__first">First name</div>
+        <div class="info__last">Last name</div>
+        <div class="info__age">Age</div>
+        <div class="info__city">City</div>
+        <div class="info__number">Number</div>
+        <div class="info__email">Email</div>
+        <div class="info__company">Company</div>
+      </section> -->
+      <!-- <div class="main-content__no-info">There is no data in the database</div> -->
+    </section>
+  </section>
+</main>
+<!--модальное окно create-->
+<section class="create">
+    <div class="create__overlay">
+    <form class="create__window window">
+      <button type="submit" id="close-btn" class="window__close-btn">x</button>
+      <h2 class="window__title">CREATE</h2>
+      <label class="window__id">Id<br>
+        <input class="window__id--input valid" id="create-id">
+      </label><br>
+      <label class="window__first">First name<br>
+        <input class="window__first--input valid" id="name">
+      </label><br>
+      <label class="window__last">Last name<br>
+        <input class="window__last--input valid" id="last">
+      </label><br>
+      <label class="window__age">Age<br>
+        <input class="window__age--input valid" id="age">
+      </label><br>
+      <label class="window__city">City<br>
+        <input class="window__city--input valid" id="city">
+      </label><br>
+      <label class="window__number">Number<br>
+        <input class="window__number--input valid" id="number">
+      </label><br>
+      <label class="window__email">Email<br>
+        <input class="window__email--input valid" id="email">
+      </label><br>
+      <label class="window__company">Company<br>
+        <input class="window__company--input valid" id="company">
+      </label><br>
+      <span id="error-message"></span>
+      <div class="window__footer">
+        <p id="error" class="window__footer--errorinf"></p>
+        <button class="window__footer--create" id="btn-create" name="btn_create">Create</button>
+        <br>
+      </div>
+    </form>
+    </div>
+  </section>
+  <!--модальное окно "update-->
+  <section class="update">
+    <div class="update__overlay">
+      <form class="update__window window">
+        <button type="submit" id="close-btn" class="window__close-btn">x</button>
+        <h2 class="window__title">UPDATE</h2>
+        <label class="window__id">Id<br>
+          <input class="window__id--input" id="createid">
+        </label><br>
+        <label class="window__first">First name<br>
+          <input class="window__first--input valid" id="name">
+        </label><br>
+        <label class="window__last">Last name<br>
+          <input class="window__last--input valid" id="last">
+        </label><br>
+        <label class="window__age">Age<br>
+          <input class="window__age--input valid" id="age">
+        </label><br>
+        <label class="window__city">City<br>
+          <input class="window__city--input valid" id="city">
+        </label><br>
+        <label class="window__number">Number<br>
+          <input class="window__number--input valid" id="number">
+        </label><br>
+        <label class="window__email">Email<br>
+          <input class="window__email--input valid" id="email">
+        </label><br>
+        <label class="window__company">Company<br>
+          <input class="window__company--input valid" id="company">
+        </label><br>
+        <span id="error-message"></span>
+        <div class="window__footer">
+          <p id="error" class="window__footer--errorinf"></p>
+          <button class="window__footer--update" id="btnUpdate" name="btn_update">Update</button>
+          <br>
+        </div>
       </form>
-      <section class="panel__bd bd" id="sectionDB">
-        <div class="bd__mysql" id="mysql">MySQL</div>
-        <button class="bd__arrow" id="db"></button>
-        <div class="bd__mongodb" id="mongoDB">MongoDB</div>
-      </section>
-      <section class="panel__sort sort" id="sortSection">
-        <div class="sort__name">Id</div>
-        <button class="sort__arrow" id="sorting"></button>
-        <section class="sort__fields fields" id="fields">
-          <div class="fields__fields" id="first">First name</div>
-          <div class="fields__fields" id="last">Last name</div>
-          <div class="fields__fields" id="age">Age</div>
-          <div class="fields__fields" id="city">City</div>
-          <div class="fields__fields" id="number">Number</div>
-          <div class="fields__fields" id="email">Email</div>
-          <div class="fields__fields" id="company">Company</div>
-        </section>
-      </section>
-    </section>
-    <section class="main__content content">
-      <section class="content__panel panel">
-        <button class="panel__create" id="create">Create</button>
-        <button class="panel__update" id="update">Update</button>
-        <button class="panel__delete" id="delete">Delete</button>
-        <button class="panel__clear" id="clear">ClearAll</button>
-      </section>
-      <section class="content__main-content main-content">
-        <section class="main-content__fields fields">
-          <div class="fields__id">Id</div>
-          <div class="fields__first">First name</div>
-          <div class="fields__last">Last name</div>
-          <div class="fields__age">Age</div>
-          <div class="fields__city">City</div>
-          <div class="fields__number">Number</div>
-          <div class="fields__email">Email</div>
-          <div class="fields__company">Company</div>
-        </section>
-        <!-- <section class="main-content__info info">
-          <div class="info__id">Id</div>
-          <div class="info__first">First name</div>
-          <div class="info__last">Last name</div>
-          <div class="info__age">Age</div>
-          <div class="info__city">City</div>
-          <div class="info__number">Number</div>
-          <div class="info__email">Email</div>
-          <div class="info__company">Company</div>
-        </section> -->
-        <!-- <div class="main-content__no-info">There is no data in the database</div> -->
-      </section>
-    </section>
-  </main>
+    </div>
+  </section>
+  <!--модальное окно Settings-->
+  <section class="modal-password">
+    <div class="modal-password__overlay">
+      <form class="modal-password__window window">
+        <button type="submit" id="close-btn" class="window__close-btn">X</button>
+        <h2 class="window__title">SETTINGS</h2>
+        <label class="window__old">OLD PASSWORD<br>
+          <input class="window__old--input-pass validation valid" id="old-password"
+                 placeholder="Entry you old password">
+        </label><br>
+        <label class="window__new">NEW PASSWORD<br>
+          <input class="window__new--input-pass validation valid" id="new-password"
+                 placeholder="Entry you new password">
+        </label><br>
+        <label class="window__confirm">CONFIRM PASSWORD<br>
+          <input class="window__confirm--input-pass validation valid" id="confirm-password"
+                 placeholder="Confirm new password">
+        </label><br>
+        <label class="window__old">OLD lOGIN<br>
+          <input class="window__old--input-log validation valid" id="old-login" type="email"
+                 placeholder="currentPassword@gmail.com">
+        </label><br>
+        <label class="window__new">NEW lOGIN<br>
+          <input class="window__new--input-log validation valid" id="new-login" placeholder="Confirm new login">
+        </label><br>
+
+        <div class="modal-password__footer">
+          <p id="error" class="modal-password__footer--errorinf"></p>
+          <button class="modal-password__footer--Confirm" type="button" name="btn_Confirm" id="btnconf">Confirm
+          </button>
+          <br>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!--asks Window-->
+  <div class="modal-clear">
+    <div class="modal-clear__overlay">
+      <div class="modal-clear__window window">
+        <button type="submit" id="close-btn" class="window__close-btn">X</button>
+        <h2 class="window__text">CLEAR ALL?</h2>
+        <div class="window__buttons buttons">
+          <button class="buttons__yes" id="btn-cancel">Yes</button>
+          <button class="buttons__no">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+<script src="helpers/validation.js"></script>
+<script src="helpers/validationCreate.js"></script>
+<script src="helpers/validationUpdate.js"></script>
 </html>
