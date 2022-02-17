@@ -1,9 +1,9 @@
 @import "../../helper/vars.scss";
 @import "mainPage";
-@import "create.scss";
-@import "update.scss";
-@import "settings.scss";
-@import "register.scss";
+@import "ModalCreate.scss";
+@import "ModalUpdate.scss";
+@import "ModalSettings.scss";
+@import "ModalClear.scss";
 
 html {
   box-sizing: border-box;

@@ -22,12 +22,7 @@ background: #071E22;
   }
   */
 .modal-clear {
-  position: absolute;
-  font-family: Roboto;
-  width: 100%;
-  overflow: hidden;
-
-  &__window {
+   &__window {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20%;
@@ -51,7 +46,7 @@ background: #071E22;
     display: flex;
     justify-content: right;
     border: none;
-    margin-left: 320px;
+    margin-left: 93%;
     background-color: #79B791;
     color: #FFFFFF;
    }
@@ -72,17 +67,17 @@ background: #071E22;
     height: 43px;
     box-shadow: 0px 4px 4px;
     border: none;
+    color: black;
   }
-
+  &__no {
+    background-color: #9A9797;
+  }
+  &__yes {
+    background-color: #EDF6F8;
+  }
   &__yes:hover, &__no:hover {
     box-shadow: 1px 2px 3px grey;
   }
 
-  &___no {
-    background: #9A9797;
-  }
 
-  &___yes {
-    background: #EDF6F8;
-  }
 }

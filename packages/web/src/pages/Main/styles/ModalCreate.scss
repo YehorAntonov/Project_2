@@ -1,0 +1,49 @@
+/*register change password*/
+/*.create{
+  &__window{
+    background-color: #071E22;
+  }
+
+}
+
+
+
+.window {
+  &__close-btn {
+    background-color: #071E22;
+  }
+    &__footer{
+    &--creat {
+      background-color: #9CE2D3;
+    }
+  }
+}*/
+
+  .create {
+  &__window {
+    background-color: #79B791;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    padding: 10px;
+    border-radius: 15px;
+    font-family: "Prompt", sans-serif;
+  }
+}
+.window {
+
+  &__first, &__age, &__city, &__number, &__email, &__company, &__last {
+    text-align: left;
+    padding-left: 25px;
+    color: #FFFCFC;
+    color: #000000;
+
+    &--input, &--input, &--input, &--input, &--input, &--input {
+      width: 317px;
+      height: 33px;
+      background: #FFFFFF;
+      border-radius: 7px;
+      margin: 10px auto 10px 25px;
+    }
+  }
+}

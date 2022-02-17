@@ -20,7 +20,7 @@
         height: 45px;
         background-color: $bg-panel;
         border-radius: $border-radius-panel;
-        z-index: 9999;
+        z-index: 1; //change from 9999
     }
     &__bd{
         margin: 0 30px;

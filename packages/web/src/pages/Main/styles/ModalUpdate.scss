@@ -1,0 +1,68 @@
+/*register change password*/
+/*.update{
+  &__window{
+    background-color: #071E22;
+  }
+
+}
+
+
+
+.window {
+  &__close-btn {
+    background-color: #071E22;
+  }
+    &__footer{
+    &--creat {
+      background-color: #9CE2D3;
+    }
+  }
+}*/
+
+
+.update {
+  &__window {
+    background-color: #79B791;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    padding: 10px;
+    border-radius: 15px;
+    font-family: "Prompt", sans-serif;
+  }
+}
+
+.window {
+
+  &__title {
+    text-align: center;
+    color: #FFFCFC;
+    margin-top: -5px;
+    margin-bottom: -10px;
+    padding-bottom: 20px;
+  }
+
+  &__text {
+    font-family: "Prompt", sans-serif;
+    text-align: center;
+    font-size: large;
+    color: #FFFCFC;
+  }
+
+  &__first, &__age, &__city, &__number, &__email, &__company, &__last {
+    text-align: left;
+    padding-left: 25px;
+    color: #FFFCFC;
+  }
+
+  &__first--input, &__age--input, &__city--input, &__number--input, &__email--input, &__company--input, &__last--input {
+    width: 317px;
+    height: 33px;
+    background: #FFFFFF;
+    border-radius: 7px;
+    margin: 10px auto 10px 25px;
+    color: #000000;
+  }
+
+}
+

@@ -15,13 +15,13 @@ export function getNode(id) {
     return false;
 }
 
-// export function getNodeClass(selector) {
-//     const node = document.querySelector(`.${selector}`);
-//     if (node) {
-//         return node;
-//     }
-//     return false;
-// }
+export function getNodeClass(selector) {
+    const node = document.querySelector(`.${selector}`);
+    if (node) {
+        return node;
+    }
+    return false;
+}
 
 // export function getSelectorAttribute(selector) {
 //     const node = document.querySelector(`[${selector}]`);
@@ -31,13 +31,13 @@ export function getNode(id) {
 //     return false;
 // }
 
-// export function getNodeAllClass(selector) {
-//     const node = document.querySelectorAll(`.${selector}`);
-//     if (node) {
-//         return node;
-//     }
-//     return false;
-// }
+export function getNodeAllClass(selector) {
+    const node = document.querySelectorAll(`.${selector}`);
+    if (node) {
+        return node;
+    }
+    return false;
+}
 
 // export function getNodeSelectorAll(selector) {
 //     const node = document.querySelectorAll(`[${selector}]`);
@@ -72,6 +72,6 @@ export function addListener(id, eventType, cb) {
     return false
 }
 
-// export function addListenerHelper(node, eventType, cb) {
-//     node.addEventListener(eventType, cb);
-// }
+export function addListenerHelper(node, eventType, cb) {
+    node.addEventListener(eventType, cb);
+}
