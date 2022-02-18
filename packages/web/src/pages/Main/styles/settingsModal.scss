@@ -2,8 +2,67 @@
     &__window-setting{
         width: 27%;
         background-color: #79B791;
-        margin: 3% auto;
+        margin: 5% auto;
         padding: 10px;
         border-radius: 15px;
+    }
+}
+
+.window-setting{
+    &__title {
+        font-size: xx-large;
+        text-align: center;
+        margin: 4% 0;
+    }
+    
+    &__close-btn{
+        font-size: larger;
+        display: flex;
+        float: right;
+        background-color: #79B791;
+        :hover {
+            transform: rotate(90deg);
+        }
+    }
+
+    &__old, &__new, &__confirm{
+        margin: 0 10%;
+        font-size: 18px;
+    }
+
+    &__old--input-pass, &__new--input-pass, &__confirm--input-pass, &__old--input-log, &__new--input-log {
+        width: 80%;
+        height: 33px;
+        background: #FFFFFF;
+        border-radius: 7px;
+        margin: 2px 10% 15px 10%;
+        color: black;
+    }
+
+    &__confirm--input-pass{
+       margin: 2px 10% 50px 10%;
+    }
+
+    &__footer {
+        &--btn {
+            background: #EDF6F8;
+            color: #514D4D;
+            width: 80%;
+            height: 43px;
+            border-radius: 7px;
+            box-shadow: 0px 2px 2px;
+            font-size: 24px;
+            line-height: 36px;
+            margin: 10px 10%;
+            &:hover {
+                box-shadow: 1px 2px 3px black;
+            }
+        }
+        &--errorinf {
+            text-align: center;
+            color: red;
+            font-size: x-large;
+            margin: 1% 0;
+        }
     }
 }
