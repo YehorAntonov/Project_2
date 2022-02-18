@@ -1,13 +1,13 @@
 import { addListener, getNode, getNodeClass } from './../../helper/utils';
 
-addListener("btnUpdate", 'click', validNames);
-addListener("btnUpdate", 'click', validAge);
-addListener("btnUpdate", 'click', validEmail);
-addListener("btnUpdate", 'click', validPhone);
+
+// function validAll() {
+//   validNames();
+//
+// }
 
 
-
-function validNames() {
+export function validNames() {
     const checkStr = /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/;
 
     getNode('nameUpdate').addEventListener('click', () => {
@@ -77,7 +77,7 @@ function validNames() {
 }
 
 
-function validAge() {
+export function validAge() {
     const checkStr = /^(?:1(?:00?|\d)|[2-5]\d|[6-9]\d?)$/;
     getNode('ageUpdate').addEventListener('click', () => {
         if (checkStr.test(getNode('ageUpdate').value) &&
@@ -97,7 +97,7 @@ function validAge() {
         }
     })
     }
- function validEmail() {
+export function validEmail() {
      const checkStr = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
     getNode('emailUpdate').addEventListener('click', () => {
         if (checkStr.test(getNode('emailUpdate').value)) {
@@ -117,7 +117,7 @@ function validAge() {
 }
 
 
-function validPhone() {
+export function validPhone() {
 const checkStr = /^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
     getNode('numberUpdate').addEventListener('click', () => {
         if (checkStr.test(getNode('numberUpdate').value)){
