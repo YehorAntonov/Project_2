@@ -1,7 +1,7 @@
 import { getNode, getNodeClass, setHTMLValue } from './../../../helper/utils';
 
 export function validate(e) {
-    const regNames = /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/;
+    const regNames =  /^([А-Я]{1}[а-яё]{2,19}$|[A-Z]{1}[a-z]{2,19})$/;
     const regPhone = /^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
     const regEmail = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
     if (e.target.id === 'nameCreate') {

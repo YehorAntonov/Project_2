@@ -4,6 +4,10 @@ import {addListener, getNode} from '../helper/utils';
 import {showDatabases, showSorting} from './helpers/showDropDown';
 import {showModals, closeModals} from './helpers/showModals';
 import {validate} from './helpers/validation/validationCreate';
+//
+import {validateUpdate} from './helpers/validation/validationUpdate';
+import {validateSettings} from './helpers/validation/validationSettings';
+
 
 document.addEventListener('DOMContentLoaded', function () {
   showCloseDropDowns();
@@ -19,4 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
   addListener('close-btn', 'click', closeModals.bind(null, getNode('modalClear')));
 
   addListener('modalCreate', 'change', validate);
+  //
+  addListener('modalUpdate', 'change', validateUpdate);
+  addListener('modalSettings', 'change', validateSettings);
 })
