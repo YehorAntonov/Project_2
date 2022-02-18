@@ -34,21 +34,6 @@
 
 .window {
 
-  &__title {
-    text-align: center;
-    color: #FFFCFC;
-    margin-top: -5px;
-    margin-bottom: -10px;
-    padding-bottom: 20px;
-  }
-
-  &__text {
-    font-family: "Prompt", sans-serif;
-    text-align: center;
-    font-size: large;
-    color: #FFFCFC;
-  }
-
   &__first, &__age, &__city, &__number, &__email, &__company, &__last {
     text-align: left;
     padding-left: 25px;

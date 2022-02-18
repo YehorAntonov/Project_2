@@ -1,10 +1,6 @@
 import { addListener, getNode, getNodeClass } from './../../helper/utils';
 
-
-  addListener("btnconf", 'click', validPassword);
-  addListener("btnconf", 'click', validLogin);
-
-function validPassword() {
+export function validPassword() {
     const checkStr = /^[a-zA-Z](.[a-zA-Z0-9_-]*)$/;
 
     getNode('old-password').addEventListener('click', () => {
@@ -61,7 +57,7 @@ function validPassword() {
     })
   }
 
-  function validLogin() {
+export  function validLogin() {
     const checkStr = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     getNode('old-login').addEventListener('click', () => {
       if (checkStr.test(getNode('old-login').value) &&

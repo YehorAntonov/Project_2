@@ -46,7 +46,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
-    width: 372px;
+    width: 30%;
     padding: 10px;
     border-radius: 15px;
     font-family: "Prompt", sans-serif;
@@ -58,11 +58,13 @@
   text-align: left;
   width: 390px;
 
-  &__text {
-    font-family: "Prompt", sans-serif;
+  &__title {
+    font-size: xx-large;
     text-align: center;
-    font-size: large;
     color: #FFFCFC;
+    margin-top: -5px;
+    margin-bottom: -10px;
+    padding-bottom: 20px;
   }
 
   &__old {

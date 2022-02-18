@@ -3,17 +3,28 @@ import { showCloseDropDowns } from '../helper/showCloseDropDowns';
 import { addListener, getNode } from '../helper/utils';
 import { showDatabases, showSorting } from './helpers/showDropDown';
 import {validAge, validEmail, validNames, validPhone} from "./helpers/validationUpdate";
+import {validLogin, validPassword} from "./helpers/validationSettings";
 
 
 document.addEventListener('DOMContentLoaded', function () {
   showCloseDropDowns();
   addListener('panel', 'click', showDatabases.bind(null, getNode('db'), getNode('mongoDB'), getNode('sectionDB')));
   addListener('panel', 'click', showSorting.bind(null, getNode('sorting'), getNode('fields'), getNode('sortSection')));
+  // Update modal
   // addListener("btnUpdate", 'click', validNames);
   // addListener("btnUpdate", 'click', validAge);
   // addListener("btnUpdate", 'click', validEmail);
   // addListener("btnUpdate", 'click', validPhone);
+  // Create modal
+  addListener("btn-create", 'click', validNames);
+  addListener("btn-create", 'click', validAge);
+  addListener("btn-create", 'click', validEmail);
+  addListener("btn-create", 'click', validPhone);
+  // Settings modal
+  addListener("btnconf", 'click', validPassword);
+  addListener("btnconf", 'click', validLogin);
   addListener("btnUpdate", 'click', test);
+
   addListener("create", 'click', openModalCreate);
   addListener("update", 'click', openModalUpdate);
   addListener("clear", 'click', openModalClear);
