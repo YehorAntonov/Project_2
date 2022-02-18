@@ -24,6 +24,42 @@
       <button class="block-dropdown__logout"></button>
     </section>
   </header>
+  
+  <!--модальное окно create-->
+  <section class="modal" id="modalCreate">
+    <div class="modal__overlay">
+      <div class="modal__window window">
+        <button id="closeCreate" class="window__close-btn">x</button>
+        <h2 class="window__title">CREATE</h2>
+        <label class="window__first">First name
+          <input class="window__first--input" id="nameCreate" data-inputs>
+        </label>
+        <label class="window__last">Last name
+          <input class="window__last--input" id="lastCreate">
+        </label>
+        <label class="window__age">Age
+          <input class="window__age--input" id="ageCreate" type="number">
+        </label>
+        <label class="window__city">City
+          <input class="window__city--input" id="cityCreate">
+        </label>
+        <label class="window__number">Number
+          <input class="window__number--input" id="numberCreate">
+        </label>
+        <label class="window__email">Email
+          <input class="window__email--input" id="emailCreate">
+        </label>
+        <label class="window__company">Company
+          <input class="window__company--input" id="companyCreate">
+        </label>
+        <div class="window__footer">
+          <p id="errorCreate" class="window__footer--errorinf"></p>
+          <button class="window__footer--btn" id="btn-create" name="btn_create">Create</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <main class="main">
     <section class="main__panel panel" id="panel">
       <form action="" class="panel__form form">
