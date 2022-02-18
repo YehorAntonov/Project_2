@@ -1,9 +1,9 @@
 import { MongoClient } from 'mongodb';
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import { mongoDBConfig } from '../config/mongoDB.config';
 import { ICRUD } from '../interface/ICRUD';
 
-export class MongoDBController implements ICRUD{
+export class MongoDBController implements ICRUD {
     private connection;
     private person;
     private userTable;
@@ -17,9 +17,10 @@ export class MongoDBController implements ICRUD{
         const url = `mongodb+srv://Khramova:${password}@cluster0.zgkf2.mongodb.net/${name}?retryWrites=true&w=majority`
         MongoClient.connect(url)
             .then((db) => {
-                this.connection = db;
-                this.person =  this.connection.collection('person');
-                this.userTable = this.connection.collection('userTable');
+                this.connection = db.db('Project2');
+            })
+            .then(() => {
+                this.connectTables();
             })
             .catch((err) => {
                 throw new Error(`Error during mongoDB connection: ${err.message}`)
@@ -30,6 +31,10 @@ export class MongoDBController implements ICRUD{
         this.connection.dropConnection();
     }
 
+    connectTables() {
+        this.person = this.connection.collection('person');
+        this.userTable = this.connection.collection('userTable');
+    }
     clear(query: string, res: Response): void {
         const execute = JSON.parse(query);
         this.person
@@ -90,13 +95,39 @@ export class MongoDBController implements ICRUD{
             })
     }
     
-    readUser(query: string, res: Response){
+    readUser(query: string) {
         const excute = JSON.parse(query);
-        return this.userTable.findOne(excute);
+        return this.userTable
+            .findOne(excute)
+            .then((result) => {
+                return result;
+            })
+            .catch((err) => {
+                return false;
+            })
     }
 
-    createUser(query: string, res: Response) {
+    createUser(query: string) {
         const excute = JSON.parse(query);
-        return this.userTable.insertOne(excute);
+        return this.userTable
+            .insertOne(excute)
+            .then((result) => {
+                return result;
+            })
+            .catch((err) => {
+                return false;
+            })
+    }
+
+    updateUser(query: string) {
+        const excute = JSON.parse(query);
+        return this.userTable
+            .updateOne(excute[0], excute[1])
+            .then((result) => {
+                return result;
+            })
+            .catch((err) => {
+                return false;
+            })
     }
 }

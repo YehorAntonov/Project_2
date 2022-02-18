@@ -6,11 +6,9 @@ import { ValidationService } from './Validation.service';
 
 export class DatabaseService {
   private mySql: MySQLController;
-
   private mongoDB: MongoDBController;
-
   private validator: ValidationService;
-
+  
   constructor() {
     this.mySql = new MySQLController();
     this.mongoDB = new MongoDBController();
@@ -147,56 +145,55 @@ export class DatabaseService {
 
     if (!res.status) {
       const query = JSON.stringify({ login: req.body.login });
-      const user = await this.mongoDB.readUser(query, res);
+      const user = await this.mongoDB.readUser(query);
       if (user) {
         return user;
       }
-      res.status(400).end();
-    }
       return false;
+    }
+    res.status(400).end();
+    return false;
   }
 
   async createUser(req: Request, res: Response) {
     this.validator.refresh(req, res).validateLogin().validatePassword().refresh();
 
     if (!res.status) {
-      let hashPassword;
-      bcrypt.hash(req.body.password, 7, (err, hash) => {
-        hashPassword = hash;
-      })
+      const hashPassword = await bcrypt.hash(req.body.password, 7, (hash) => hash);
       const query = JSON.stringify({
         login: req.body.login,
         password: hashPassword
       });
-      const user = await this.mongoDB.readUser(query, res);
-      if (user) {
-        return user;
+      const newUser = await this.mongoDB.createUser(query);
+      if (newUser) {
+        return newUser;
       }
-      res.status(400).end();
-    }
       return false;
+    }
+    res.status(400).end();
+    return false;
   }
   
   async updateUser(req: Request, res: Response) {
     this.validator.refresh(req, res).validateLogin().validatePassword().refresh();
 
     if (!res.status) {
-      let hashPassword;
-      bcrypt.hash(req.body.password, 7, (err, hash) => {
-        hashPassword = hash;
-      })
-      const query = JSON.stringify({
-        login: req.body.login,
-        password: hashPassword
-      });
-      const user = await this.mongoDB.readUser(query, res);
-      if (user) {
-        return user;
+      const hashPassword = await bcrypt.hash(req.body.newPassword, 7, (hash) => hash);
+      const query = JSON.stringify([
+        { _id: req.body.id },
+        {
+          $set: {
+            login: req.body.newLogin,
+            password: hashPassword
+          }
+        }]);
+       const newUser = await this.mongoDB.updateUser(query);
+       if (newUser) {
+        return newUser;
       }
-      res.status(400).end();
-    }
       return false;
+    }
+    res.status(400).end();
+    return false;
   }
-  //авторизация
-  //регистрация
 }

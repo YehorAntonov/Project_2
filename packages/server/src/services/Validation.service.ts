@@ -11,7 +11,7 @@ export class ValidationService {
         this.valid = true;
     }
 
-    public validate() {
+    validate() {
         if (!this.req.body) {
             this.res.status(400).end();
             this.valid = false;
@@ -27,14 +27,14 @@ export class ValidationService {
         return this;
     }
 
-    public refresh(req: Request = null, res: Response = null) {
+    refresh(req: Request = null, res: Response = null) {
         this.valid = true;
         this.req = req;
         this.res = res;
         return this;
     }
 
-    public validateId() {
+    validateId() {
         if (!this.req.body.id || this.req.body.id === '') {
             this.res.status(400).end();
             this.valid = false;
@@ -42,7 +42,7 @@ export class ValidationService {
         return this;
     }
 
-    public validateDatabase() {
+    validateDatabase() {
         if (!this.req.body.db) {
             this.res.status(400).end();
             this.valid = false;
@@ -55,7 +55,7 @@ export class ValidationService {
         return this;
     }
 
-    public validateFullName() {
+    validateFullName() {
         if (!this.req.body.firstName || !this.req.body.lastName) {
             this.res.status(400).end();
             this.valid = false;
@@ -69,7 +69,7 @@ export class ValidationService {
         return this;
     }
 
-    public validateAge() {
+    validateAge() {
         if (!this.req.body.age) {
             this.req.body.age = null;
         }
@@ -83,7 +83,7 @@ export class ValidationService {
         return this;
     }
 
-    public validateCity() {
+    validateCity() {
         if (!this.req.body.city) {
             this.req.body.city = null;
         }
@@ -96,7 +96,7 @@ export class ValidationService {
         return this;
     }
 
-    public validatePhoneNumber() {
+    validatePhoneNumber() {
         if (!this.req.body.phoneNumber) {
             this.req.body.phoneNumber = null;
         }
@@ -109,7 +109,7 @@ export class ValidationService {
         return this;
     }
 
-    public validateEmail() {
+    validateEmail() {
         if (!this.req.body.email) {
             this.req.body.email = null;
         }
@@ -122,7 +122,7 @@ export class ValidationService {
         return this;
     }
 
-    public validateCompany() {
+    validateCompany() {
         if (!this.req.body.company) {
             this.req.body.company = null;
         }
@@ -135,7 +135,7 @@ export class ValidationService {
         return this;
     }
 
-    public validateLogin() {
+    validateLogin() {
         if (!this.req.body.login) {
             this.res.status(400).end();
         }
@@ -151,20 +151,18 @@ export class ValidationService {
         return this;
     }
 
-    public validatePassword() {
+    validatePassword() {
         if (!this.req.body.password) {
             this.res.status(400).end();
         }
 
         const { password } = this.req.body;
-        //регулярка на пароль с фронта
         const reg = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]){8,20}$/;
 
         if (!reg.test(password)) {
             this.res.status(400).end();
             this.valid = false;
         }
-
         return this;
     }
 }

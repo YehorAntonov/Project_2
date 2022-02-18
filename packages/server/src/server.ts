@@ -1,15 +1,15 @@
-import { App } from './App';
+import express from 'express';
+import path from 'path';
+import cp from 'cookie-parser';
+import bp from 'body-parser';
+import { App } from './views/App.view';
+import { RouterMiddleware } from './middlewares/RouterMiddleware';
 
-const app = new App();
+const server = new App();
+const router = new RouterMiddleware();
 
-app.start();
-
-// const { express } = new App();
-
-// express.listen(process.env.PORT, (err) => {
-//   if (err) {
-//     return console.error(err);
-//   }
-
-//   return console.info('Server is running in port: ', process.env.PORT);
-// });
+server.setMiddleware(cp());
+server.setMiddleware(bp.json());
+server.setMiddleware(router.getRoutes());
+server.setMiddleware(express.static(path.resolve(process.cwd(), '..', 'web', 'dist/')));
+server.start();

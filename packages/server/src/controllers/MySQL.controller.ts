@@ -1,5 +1,5 @@
 import mysql from 'mysql2';
-import { Request, Response } from 'express';
+import { Response } from 'express';
 import { mysqlConfig } from '../config/mysql.config';
 
 export class MySQLController{
@@ -12,7 +12,6 @@ export class MySQLController{
     connect() {
         this.connection = mysql.createConnection(mysqlConfig).promise();
     }
-
 
     dropConnection() {
         this.connection.dropConnection();
