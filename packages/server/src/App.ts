@@ -1,4 +1,24 @@
-// import express from 'express';
+import express from 'express';
+
+export class App{
+    express: express.Application;
+
+    constructor() {
+        this.express = express();
+        this.getPort();
+    }
+
+    getPort() {
+        this.express.set('port', process.env.PORT || 3000);
+    }
+    
+    start() {
+        this.express.listen(this.express.get('port'), () => {
+            console.log(`Server on http://localhost:${this.express.get('port')}`);
+        })
+    }
+}
+
 
 // export class App {
 //   public express;
