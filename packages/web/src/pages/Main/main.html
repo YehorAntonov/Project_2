@@ -97,33 +97,27 @@
   <!--модальное окно Settings-->
   <section class="modal modal-settings" id="modalSettings">
     <div class="modal__overlay">
-      <div class="modal__window window">
+      <div class="modal__window-setting window">
         <button id="closeSettings" class="window__close-btn">X</button>
         <h2 class="window__title">SETTINGS</h2>
-        <label class="window__old">OLD PASSWORD<br>
-          <input class="window__old--input-pass validation valid" id="old-password"
-                 placeholder="Entry you old password">
-        </label><br>
-        <label class="window__new">NEW PASSWORD<br>
-          <input class="window__new--input-pass validation valid" id="new-password"
-                 placeholder="Entry you new password">
-        </label><br>
-        <label class="window__confirm">CONFIRM PASSWORD<br>
-          <input class="window__confirm--input-pass validation valid" id="confirm-password"
-                 placeholder="Confirm new password">
-        </label><br>
-        <label class="window__old">OLD lOGIN<br>
-          <input class="window__old--input-log validation valid" id="old-login" type="email"
-                 placeholder="currentPassword@gmail.com">
-        </label><br>
-        <label class="window__new">NEW lOGIN<br>
+        <label class="window__old">OLD PASSWORD
+          <input class="window__old--input-pass validation valid" id="old-password" placeholder="Entry you old password">
+        </label>
+        <label class="window__new">NEW PASSWORD
+          <input class="window__new--input-pass validation valid" id="new-password" placeholder="Entry you new password">
+        </label>
+        <label class="window__confirm">CONFIRM PASSWORD
+          <input class="window__confirm--input-pass validation valid" id="confirm-password" placeholder="Confirm new password">
+        </label>
+        <label class="window__old">OLD lOGIN
+          <input class="window__old--input-log validation valid" id="old-login" type="text" placeholder="user">
+        </label>
+        <label class="window__new">NEW lOGIN
           <input class="window__new--input-log validation valid" id="new-login" placeholder="Confirm new login">
-        </label><br>
+        </label>
         <div class="window__footer">
           <p id="error" class="window__footer--errorinf"></p>
-          <button class="window__footer--btn" name="btn_Confirm" id="btnconf">Confirm
-          </button>
-          <br>
+          <button class="window__footer--btn" name="btn_Confirm" id="btnconf">Confirm</button>
         </div>
       </div>
     </div>
