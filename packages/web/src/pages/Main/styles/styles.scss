@@ -1,10 +1,13 @@
 @import "../../helper/vars.scss";
 @import "mainPage";
+@import 'createModal';
+@import 'settingsModal';
+@import 'ModalClear';
 
 html {
   box-sizing: border-box;
   user-select: none;
-  font-family: Prompt;
+  font-family: "Prompt";
   font-weight: 400;
   font-size: 16px;
 }

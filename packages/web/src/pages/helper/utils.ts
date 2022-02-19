@@ -1,11 +1,11 @@
-// export function setHTMLValue(id, value) {
-//     const node = document.getElementById(id);
-//     if (node) {
-//         node.innerHTML = value;
-//         return true;
-//     }
-//     return false;
-// }
+export function setHTMLValue(id, value) {
+    const node = document.getElementById(id);
+    if (node) {
+        node.innerHTML = value;
+        return true;
+    }
+    return false;
+}
 
 export function getNode(id) {
     const node = document.getElementById(id);
@@ -15,13 +15,13 @@ export function getNode(id) {
     return false;
 }
 
-// export function getNodeClass(selector) {
-//     const node = document.querySelector(`.${selector}`);
-//     if (node) {
-//         return node;
-//     }
-//     return false;
-// }
+export function getNodeClass(selector) {
+    const node = document.querySelector(`.${selector}`);
+    if (node) {
+        return node;
+    }
+    return false;
+}
 
 // export function getSelectorAttribute(selector) {
 //     const node = document.querySelector(`[${selector}]`);

@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700,800&display=swap"
-        rel="stylesheet">
+  <title>MainPage</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700,800&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="header">
@@ -19,11 +18,122 @@
         <div class="theme__line" id="line"></div>
         <div class="theme__dark" data-theme id="dark"></div>
       </section>
-      <button class="block-dropdown__settings"></button>
+      <button class="block-dropdown__settings" id="settings"></button>
       <div class="block-dropdown__prompt" title="dvsdfvsdfv">Settings</div>
       <button class="block-dropdown__logout"></button>
     </section>
   </header>
+  <!--модальное окно create-->
+  <section class="modal" id="modalCreate">
+    <div class="modal__overlay">
+      <div class="modal__window window">
+        <button id="closeCreate" class="window__close-btn">x</button>
+        <h2 class="window__title">CREATE</h2>
+        <label class="window__first">First name
+          <input class="window__first--input" id="nameCreate" data-inputs>
+        </label>
+        <label class="window__last">Last name
+          <input class="window__last--input" id="lastCreate">
+        </label>
+        <label class="window__age">Age
+          <input class="window__age--input" id="ageCreate" type="number">
+        </label>
+        <label class="window__city">City
+          <input class="window__city--input" id="cityCreate">
+        </label>
+        <label class="window__number">Number
+          <input class="window__number--input" id="numberCreate">
+        </label>
+        <label class="window__email">Email
+          <input class="window__email--input" id="emailCreate">
+        </label>
+        <label class="window__company">Company
+          <input class="window__company--input" id="companyCreate">
+        </label>
+        <div class="window__footer">
+          <p id="errorCreate" class="window__footer--errorinf"></p>
+          <button class="window__footer--btn" id="btn-create" name="btn_create">Create</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--модальное окно "update-->
+  <section class="modal" id="modalUpdate">
+    <div class="modal__overlay">
+      <div class="modal__window window">
+        <button id="closeUpdate" class="window__close-btn">x</button>
+        <h2 class="window__title">UPDATE</h2>
+        <label class="window__first">First name
+          <input class="window__first--input valid" id="nameUpdate">
+        </label><br>
+        <label class="window__last">Last name
+          <input class="window__last--input valid" id="lastUpdate">
+        </label><br>
+        <label class="window__age">Age
+          <input class="window__age--input valid" id="ageUpdate">
+        </label><br>
+        <label class="window__city">City
+          <input class="window__city--input valid" id="cityUpdate">
+        </label><br>
+        <label class="window__number">Number
+          <input class="window__number--input valid" id="numberUpdate">
+        </label><br>
+        <label class="window__email">Email
+          <input class="window__email--input valid" id="emailUpdate">
+        </label><br>
+        <label class="window__company">Company
+          <input class="window__company--input valid" id="companyUpdate">
+        </label><br>
+        <span id="error-message"></span>
+        <div class="window__footer">
+          <p id="errorUpdate" class="window__footer--errorinf"></p>
+          <button class="window__footer--btn" id="btnUpdate" name="btn_update">Update</button>
+          <br>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--модальное окно Settings-->
+  <section class="modal modal-settings" id="modalSettings">
+    <div class="modal__overlay">
+      <div class="modal__window-setting window-setting">
+        <button id="closeSettings" class="window-setting__close-btn">X</button>
+        <h2 class="window-setting__title">SETTINGS</h2>
+        <label class="window-setting__old">OLD PASSWORD
+          <input class="window-setting__old--input-pass validation" id="old-password" placeholder="Entry you old password">
+        </label>
+        <label class="window-setting__new">NEW PASSWORD
+          <input class="window-setting__new--input-pass validation" id="new-password" placeholder="Entry you new password">
+        </label>
+        <label class="window-setting__confirm">CONFIRM PASSWORD
+          <input class="window-setting__confirm--input-pass validation" id="confirm-password" placeholder="Confirm new password">
+        </label>
+        <label class="window-setting__old">OLD lOGIN
+          <input class="window-setting__old--input-log validation" id="old-login" type="text" placeholder="Old login">
+        </label>
+        <label class="window-setting__new">NEW lOGIN
+          <input class="window-setting__old--input-log validation" id="new-login" placeholder="Confirm new login">
+        </label>
+        <div class="window-setting__footer">
+          <p id="error" class="window-setting__footer--errorinf"></p>
+          <button class="window-setting__footer--btn" name="btn_Confirm" id="btnconf">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--asks Window-->
+  <section class="modal" id="modalClear">
+    <div class="modal__overlay">
+      <div class="modal__window window-clear">
+        <button type="button" id="close-btn" class="window__close-btn">X</button>
+        <h2 class="window-clear__text">CLEAR ALL?</h2>
+        <div class="window__buttons buttons">
+          <button class="buttons__yes" id="btn-cancel">Yes</button>
+          <button class="buttons__no">No</button>
+        </div>
+      </div>
+    </div>
+  </section>
   <main class="main">
     <section class="main__panel panel" id="panel">
       <form action="" class="panel__form form">
