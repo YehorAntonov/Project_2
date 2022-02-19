@@ -8,9 +8,7 @@ export function deleteRouter(url) {
     }).then((response: Response) => {
         if (response.status === 200) {
             console.log(response);
-            // closeModals(getNode('modalCreate'));
             closeModals(getNode('modalClear'));
-            // getData('/main');
             getData(url);
         }
     }).catch((err) => {
