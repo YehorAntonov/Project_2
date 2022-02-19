@@ -1,4 +1,5 @@
 import { getNode } from '../../../helper/utils';
+import { closeModals } from '../showModals';
 import { getData } from './routerGet';
 
 export function postFunc(url, data) {
@@ -31,5 +32,6 @@ export function checkFieldError() {
             company: getNode('companyCreate').value,
         }
         postFunc('/main', data);
+        closeModals(getNode('modalCreate'));
     }
 }
