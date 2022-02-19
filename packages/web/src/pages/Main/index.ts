@@ -26,4 +26,5 @@ document.addEventListener('DOMContentLoaded', function () {
   //
   addListener('modalUpdate', 'change', validateUpdate);
   addListener('modalSettings', 'change', validateSettings);
+
 })
