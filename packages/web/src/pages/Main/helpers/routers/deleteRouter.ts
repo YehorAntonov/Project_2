@@ -3,7 +3,6 @@ import { closeModals } from "../showModals";
 import { getData } from "./getRouter";
 
 export function deleteRouter(url) {
-    console.log('delte');
     fetch(url, {
         method: 'DELETE',
     }).then((response: Response) => {
