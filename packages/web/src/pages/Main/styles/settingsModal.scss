@@ -20,7 +20,7 @@
         display: flex;
         float: right;
         background-color: #79B791;
-        :hover {
+        &:hover {
             transform: rotate(90deg);
         }
     }
