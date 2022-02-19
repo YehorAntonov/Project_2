@@ -5,16 +5,18 @@ import {showDatabases, showSorting} from './helpers/showDropDown';
 import {showModals, closeModals} from './helpers/showModals';
 import {validate} from './helpers/validation/validationCreate';
 import { render } from './helpers/render';
-import { getData } from './helpers/routers/routerGet';
-import { checkFieldError } from './helpers/routers/routerPost';
-//
-/*import {validateUpdate} from './helpers/validation/validationUpdate';
-import {validateSettings} from './helpers/validation/validationSettings';*/
+import { getData } from './helpers/routers/getRouter';
+import { checkFieldCreate, checkFieldError } from './helpers/routers/postRouter';
+
+import { validateUpdate } from './helpers/validation/validationUpdate';
+import { checkFieldUpdate } from './helpers/routers/putRouter';
+// import {validateSettings} from './helpers/validation/validationSettings';
 
 
 document.addEventListener('DOMContentLoaded', function () {
   // getData('/main')
   // render([{id: 1, firstName: 'kek', lastName: 'Chebyrek', age: 18, city: 'Kharkiv', phoneNumber: 555555}]);
+  // render([]);
   showCloseDropDowns();
   addListener('panel', 'click', showDatabases.bind(null, getNode('db'), getNode('mongoDB'), getNode('sectionDB')));
   addListener('panel', 'click', showSorting.bind(null, getNode('sorting'), getNode('fields'), getNode('sortSection')));
@@ -28,8 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
   addListener('close-btn', 'click', closeModals.bind(null, getNode('modalClear')));
 
   addListener('modalCreate', 'change', validate);
-  addListener('btn-create', 'click', checkFieldError);
+  addListener('btn-create', 'click', checkFieldCreate);
   //
-/*  addListener('modalUpdate', 'change', validateUpdate);
-  addListener('modalSettings', 'change', validateSettings);*/
+  addListener('modalUpdate', 'change', validateUpdate);
+  addListener('btnUpdate', 'click', checkFieldUpdate);
+  // addListener('modalSettings', 'change', validateSettings);
 })

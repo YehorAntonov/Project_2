@@ -1,5 +1,3 @@
-// import { getNode } from '../../../helper/utils';
-
 import { render } from "../render";
 
 export function getData(url) {

@@ -1,6 +1,6 @@
 import { getNode } from '../../../helper/utils';
 import { closeModals } from '../showModals';
-import { getData } from './routerGet';
+import { getData } from './getRouter';
 
 export function postFunc(url, data) {
     console.log(data);
@@ -20,7 +20,7 @@ export function postFunc(url, data) {
     })
 }
 
-export function checkFieldError() {
+export function checkFieldCreate() {
     if (getNode('errorCreate').innerText === '') {
         const data = {
             firstName: getNode('nameCreate').value,
