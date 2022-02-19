@@ -69,9 +69,10 @@ export class RouterMiddleware {
         this.databaseService.delete(req, res);
       });
 
-    this.router.route('/main/settings').put(async (req, res) => {
-      await this.authenticationService.update(req, res);
-    });
+    this.router.route('/main/settings')
+      .put(async (req, res) => {
+        await this.authenticationService.update(req, res);
+      });
 
     this.router.get('/', (req, res) => {
       if (req.cookies.jwt) {

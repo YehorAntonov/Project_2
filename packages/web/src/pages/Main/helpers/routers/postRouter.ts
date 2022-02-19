@@ -13,7 +13,7 @@ export function postFunc(url, data) {
     }).then((response: Response) => {
         if (response.status === 200) {
             console.log(response);
-            getData('/main');
+            getData(url);
         }
     }).catch((err) => {
         console.log(err);
@@ -31,7 +31,7 @@ export function checkFieldCreate() {
             email: getNode('emailCreate').value,
             company: getNode('companyCreate').value,
         }
-        postFunc('/main', data);
+        postFunc('/main/data', data);
         closeModals(getNode('modalCreate'));
     }
 }

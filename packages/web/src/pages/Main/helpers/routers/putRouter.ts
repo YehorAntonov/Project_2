@@ -31,7 +31,7 @@ export function checkFieldUpdate() {
             email: getNode('emailUpdate').value,
             company: getNode('companyUpdate').value,
         }
-        putFunc('/main', data);
+        putFunc('/main/data', data);
         closeModals(getNode('modalCreate'));
     }
 }

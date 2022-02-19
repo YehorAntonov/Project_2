@@ -6,15 +6,17 @@ import {showModals, closeModals} from './helpers/showModals';
 import {validate} from './helpers/validation/validationCreate';
 import { render } from './helpers/render';
 import { getData } from './helpers/routers/getRouter';
-import { checkFieldCreate, checkFieldError } from './helpers/routers/postRouter';
+import { checkFieldCreate } from './helpers/routers/postRouter';
 
 import { validateUpdate } from './helpers/validation/validationUpdate';
 import { checkFieldUpdate } from './helpers/routers/putRouter';
+import { checkFieldSetting, settingSRouter } from './helpers/routers/settingsRouter';
+import { deleteRouter } from './helpers/routers/deleteRouter';
 // import {validateSettings} from './helpers/validation/validationSettings';
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  // getData('/main')
+  // getData('/main/data')
   // render([{id: 1, firstName: 'kek', lastName: 'Chebyrek', age: 18, city: 'Kharkiv', phoneNumber: 555555}]);
   // render([]);
   showCloseDropDowns();
@@ -32,8 +34,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   addListener('modalCreate', 'change', validate);
   addListener('btn-create', 'click', checkFieldCreate);
+
   //
   addListener('modalUpdate', 'change', validateUpdate);
   addListener('btnUpdate', 'click', checkFieldUpdate);
+
+  //clearAll
+  addListener('btn-cancel', 'click', deleteRouter);
+
+  //settings
+  addListener('btnconf', 'click', checkFieldSetting);
   // addListener('modalSettings', 'change', validateSettings);
 })
