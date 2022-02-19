@@ -31,6 +31,12 @@
        box-shadow: 5px 6px 2px 0px rgba(0, 0, 0, 0.7);
 
     }
+  &__errorInfRegister {
+    text-align: center;
+    color: red;
+    font-size: x-large;
+    margin: 1% 0;
+  }
 }
 .block{
     &__text-login, &__text-password{

@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
   addListener('closeSettings', 'click', closeModals.bind(null, getNode('modalSettings')));
   addListener('clear', 'click', showModals.bind(null, getNode('modalClear')));
   addListener('close-btn', 'click', closeModals.bind(null, getNode('modalClear')));
+  addListener('btn-ClearNo', 'click', closeModals.bind(null, getNode('modalClear')));
 
   addListener('modalCreate', 'change', validate);
   //
