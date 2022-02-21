@@ -20,11 +20,11 @@
       </section>
     </section>
   </header>
-  <form action="" class="form" id="form">
+  <div class="form" id="form">
     <h1 class="form__title">Sing In</h1>
     <section class="form__block block" >
       <h2 class="block__text-login">Login</h2>
-      <input type="text" class="block__field" id="login">
+      <input type="text" class="block__field" id="loginRegistration">
       <h2 class="block__text-password">Password</h2>
       <section class="block__password password">
         <input type="password" class="password__field" id="password" data-password>
@@ -35,11 +35,12 @@
         <input type="password" class="password__field" id="password-confirm" data-password>
         <a href="#" class="password__img" id="confirm-view" data-view></a>
       </section>
+      <p id="errorRegister" class="form__errorInfRegister"></p>
       <button class="form__btn" type="button" id="singUp">Sing Up</button>
       <div class="block__info info">Already registered?
-        <a class="info__link" href="./login.html">Login in</a>
+        <a class="info__link" href="/login">Login in</a>
       </div>
     </section>
-  </form>
+  </div>
 </body>
 </html>

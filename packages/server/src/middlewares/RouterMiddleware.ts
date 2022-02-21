@@ -5,9 +5,7 @@ import { AuthenticationService } from '../services/Auth.service';
 
 export class RouterMiddleware {
   private router: Router;
-
   private databaseService: DatabaseService;
-
   private authenticationService: AuthenticationService;
 
   constructor() {
@@ -53,10 +51,8 @@ export class RouterMiddleware {
 
     this.router
       .route('/main/data')
-      .get((req, res) => {
-        this.databaseService.read(req, res);
-      })
       .post((req, res) => {
+        console.log(req.body);
         this.databaseService.create(req, res);
       })
       .put((req, res) => {
@@ -68,11 +64,20 @@ export class RouterMiddleware {
         }
         this.databaseService.delete(req, res);
       });
+    
+    this.router
+      .route('/main/data/get')
+      .post((req, res) => {
+        this.databaseService.read(req, res);
+      })
 
-    this.router.route('/main/settings')
-      .put(async (req, res) => {
-        await this.authenticationService.update(req, res);
-      });
+    this.router.route('/main/settings').put(async (req, res) => {
+      await this.authenticationService.update(req, res);
+    });
+
+    this.router.route('/main/logout').post(async (req, res) => {
+      await this.authenticationService.logout(req, res);
+    });
 
     this.router.get('/', (req, res) => {
       if (req.cookies.jwt) {
@@ -83,7 +88,7 @@ export class RouterMiddleware {
     });
   }
 
-  public getRoutes() {
+  getRoutes() {
     return this.router;
   }
 }

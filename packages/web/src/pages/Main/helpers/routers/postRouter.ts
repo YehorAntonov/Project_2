@@ -3,8 +3,7 @@ import { closeModals } from '../showModals';
 import { getData } from './getRouter';
 
 export function postFunc(url, data) {
-    console.log(data);
-    fetch(url, {
+    fetch('/main/data', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -12,8 +11,7 @@ export function postFunc(url, data) {
         },
     }).then((response: Response) => {
         if (response.status === 200) {
-            console.log(response);
-            getData(url);
+            getData();
         }
     }).catch((err) => {
         console.log(err);
@@ -30,6 +28,7 @@ export function checkFieldCreate() {
             phoneNumber: getNode('numberCreate').value,
             email: getNode('emailCreate').value,
             company: getNode('companyCreate').value,
+            db: localStorage.getItem('databases')
         }
         postFunc('/main/data', data);
         closeModals(getNode('modalCreate'));

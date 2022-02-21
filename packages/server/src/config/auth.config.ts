@@ -1,3 +1,3 @@
 export const authConfig = {
-    secret: process.env.JWT_SECRET || 'kek'
+    secret: process.env.JWT_SECRET || 'test'
 }

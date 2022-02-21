@@ -7,6 +7,15 @@ import { postFunc } from '../helper/router';
 document.addEventListener('DOMContentLoaded', function () {
     showCloseDropDowns();
     addListener('view', 'click', viewPassword);
-    addListener('authorization', 'click', postFunc.bind(null, '/login'));
+    addListener('authorization', 'click', checkFieldLogin);
 })
 
+export function checkFieldLogin() {
+    if (getNode('errorLogin').innerText === '') {
+        const data = {
+            login: getNode('login').value,
+            password: getNode('password').value,
+        }
+        postFunc('/login', data);
+    }
+}

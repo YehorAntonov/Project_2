@@ -3,7 +3,6 @@ import { closeModals } from '../showModals';
 import { getData } from './getRouter';
 
 export function settingSRouter(url, data) {
-    console.log(url);
     fetch(url, {
         method: 'PUT',
         body: JSON.stringify(data),

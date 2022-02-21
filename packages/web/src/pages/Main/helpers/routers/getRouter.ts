@@ -1,9 +1,9 @@
 import { render } from "../render";
 
-export function getData(url) {
-    fetch(url, {
-        method: 'GET',
-        body: JSON.stringify({db: 'mySql'}), //add field localstorage
+export function getData() {
+    fetch(`/main/data/get`, {
+        method: 'POST',
+        body: JSON.stringify({db: localStorage.getItem('databases')}),
         headers: {
             'Content-Type': 'application/json'
         }

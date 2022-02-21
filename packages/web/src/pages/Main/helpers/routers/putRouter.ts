@@ -3,7 +3,6 @@ import { closeModals } from '../showModals';
 import { getData } from './getRouter';
 
 export function putFunc(url, data) {
-    console.log(data);
     fetch(url, {
         method: 'PUT',
         body: JSON.stringify(data),
@@ -13,7 +12,7 @@ export function putFunc(url, data) {
     }).then((response: Response) => {
         if (response.status === 200) {
             console.log(response);
-            getData('/main');
+            getData();
         }
     }).catch((err) => {
         console.log(err);

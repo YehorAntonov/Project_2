@@ -1,11 +1,6 @@
 import { getNode } from './utils';
 
-export function postFunc(url) {
-    const data = {
-        login: getNode('login').value,
-        password: getNode('password').value,
-        // confirmPassword: getNode('password-confirm').value
-    }
+export function postFunc(url, data) {
     console.log(data);
     fetch(url, {
         method: 'POST',

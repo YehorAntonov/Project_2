@@ -7,7 +7,7 @@ export function setHTMLValue(id, value) {
     return false;
 }
 
-export function getNode(id) {
+export function getNode(id): any{
     const node = document.getElementById(id);
     if (node) {
         return node;
