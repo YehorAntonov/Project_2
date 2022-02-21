@@ -1,7 +1,7 @@
 import {getNode, getNodeClass, setHTMLValue} from './../../../helper/utils';
 
 export function validateSettings(e) {
-  const checkPassword = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/;
+  const checkPassword = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*]){8,20}$/;
   const checkLogin = /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/;
 
   if (e.target.id === 'old-password') {

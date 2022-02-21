@@ -21,7 +21,8 @@ export class ValidationService {
         if (!this.valid) this.validateAge();
         if (!this.valid) this.validateCity();
         if (!this.valid) this.validatePhoneNumber();
-        if (!this.valid) this.validateEmail();
+        if (!this.valid) this.validateUsername();
+        if (!this.valid) this.validatePassword();
         if (!this.valid) this.validateCompany();
 
         return this;
@@ -109,13 +110,13 @@ export class ValidationService {
         return this;
     }
 
-    validateEmail() {
+    validateUsername() {
         if (!this.req.body.email) {
             this.req.body.email = null;
         }
-        const { email } = this.req.body;
-        const reg = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
-        if (!reg.test(email)) {
+        const { username } = this.req.body;
+        const reg = /^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/;
+        if (!reg.test(username)) {
             this.res.status(400).end();
             this.valid = false;
         }
