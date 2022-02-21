@@ -13,18 +13,18 @@ export function render(data) {
         </section>`;
     
     if (localStorage.getItem('databases') === 'mySql') {
-        if (data.length >= 1) {
+        if (data[0].length >= 1) {
         for (let i = 0; i < data[0].length; i++){
             render += `
             <section class="main-content__info info">
-                <div class="info__id">${data[i].Id}</div>
-                <div class="info__first">${data[i].FirstName}</div>
-                <div class="info__last">${data[i].LastName}</div>
-                <div class="info__age">${data[i].Age}</div>
-                <div class="info__city">${data[i].City}</div>
-                <div class="info__number">${data[i].PhoneNumber}</div>
-                <div class="info__email">${data[i].Email}</div>
-                <div class="info__company">${data[i].Company}</div>
+                <div class="info__id">${data[0][i].Id}</div>
+                <div class="info__first">${data[0][i].FirstName}</div>
+                <div class="info__last">${data[0][i].LastName}</div>
+                <div class="info__age">${data[0][i].Age}</div>
+                <div class="info__city">${data[0][i].City}</div>
+                <div class="info__number">${data[0][i].PhoneNumber}</div>
+                <div class="info__email">${data[0][i].Email}</div>
+                <div class="info__company">${data[0][i].Company}</div>
             </section>`
         }
         setHTMLValue('content', render);

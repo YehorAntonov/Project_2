@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function init() {
   getData();
-  localStorage.setItem('databases', 'mongoDB');
+  localStorage.setItem('databases', 'mySql');
   showCloseDropDowns();
   addListener('panel', 'click', showDatabases.bind(null, getNode('db'), getNode('mongoDB'), getNode('sectionDB')));
   addListener('panel', 'click', showSorting.bind(null, getNode('sorting'), getNode('fields'), getNode('sortSection')));
