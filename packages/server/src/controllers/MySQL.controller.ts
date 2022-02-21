@@ -24,7 +24,7 @@ export class MySQLController{
                 res.status(200).end();
             })
             .catch((err) => {
-                res.status(409).json(JSON.stringify(err));
+                res.status(409).json(err);
             });
     }
 
@@ -32,10 +32,10 @@ export class MySQLController{
         this.connection
             .query(query)
             .then((result) => {
-                res.status(200).json(JSON.stringify(result));
+                res.status(200).json(result);
             })
             .catch((err) => {
-                res.status(409).json(JSON.stringify(err));
+                res.status(409).json(err);
             });
     }
 }

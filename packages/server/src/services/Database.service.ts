@@ -6,9 +6,11 @@ import { ValidationService } from './Validation.service';
 
 export class DatabaseService {
   private mySql: MySQLController;
+
   private mongoDB: MongoDBController;
+
   private validator: ValidationService;
-  
+
   constructor() {
     this.mySql = new MySQLController();
     this.mongoDB = new MongoDBController();
@@ -16,8 +18,8 @@ export class DatabaseService {
   }
 
   clear(req: Request, res: Response): void {
-    this.validator.refresh(req, res).validateDatabase().refresh();
-    if (!res.status) {
+    // this.validator.refresh(req, res).validateDatabase().refresh();
+    if (res.statusCode === 200) {
       let query: string;
       const { db } = req.body;
       switch (db) {
@@ -27,7 +29,10 @@ export class DatabaseService {
           break;
         case 'mongoDB':
           query = JSON.stringify({});
-          this.mongoDB.clear(query, res);
+          this.mongoDB
+            .clear(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
@@ -36,16 +41,16 @@ export class DatabaseService {
   }
 
   create(req: Request, res: Response): void {
-    this.validator.refresh(req, res).validate().refresh();
-    if (!res.status) {
+    // this.validator.refresh(req, res).validate().refresh();
+    if (res.statusCode === 200) {
       let query: string;
       const { db } = req.body;
       switch (db) {
         case 'mySql':
           query =
-            `INSERT INTO person (FirstName, LastName, Age, PhoneNumber, Email, City, Company)` +
-            `VALUES(${req.body.firstName}, ${req.body.lastName}, ${req.body.age},`  +
-            `${req.body.phoneNumber}, ${req.body.email}, ${req.body.city}, ${req.body.company});`;
+            'INSERT INTO person (FirstName, LastName, Age, PhoneNumber, Email, City, Company), ' +
+            `VALUES('${req.body.firstName}', '${req.body.lastName}', '${req.body.age || 'NULL'}', `  +
+            `'${req.body.phoneNumber || 'NULL'}', '${req.body.email || 'NULL'}', '${req.body.city || 'NULL'}', '${req.body.company || 'NULL'}');`;
           this.mySql.execute(query, res);
           break;
         case 'mongoDB':
@@ -58,7 +63,10 @@ export class DatabaseService {
             city: req.body.city,
             company: req.body.company,
           });
-          this.mongoDB.create(query, res);
+          this.mongoDB
+            .create(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
@@ -68,17 +76,20 @@ export class DatabaseService {
 
   delete(req: Request, res: Response): void {
     this.validator.refresh(req, res).validateId().validateDatabase().refresh();
-      if (!res.status) {
-        let query: string;
-        const { db } = req.body;
+    if (res.statusCode === 200) {
+      let query: string;
+      const { db } = req.body;
       switch (db) {
-          case 'mySql':
-            query = `DELETE FROM person WHERE id = ${req.body.id};`;
+        case 'mySql':
+          query = `DELETE FROM person WHERE Id = ${req.body.id};`;
           this.mySql.execute(query, res);
           break;
-          case 'mongoDB':
-              query = JSON.stringify({ _id: req.body.id });
-                this.mongoDB.delete(query, res);
+        case 'mongoDB':
+          query = JSON.stringify({ _id: req.body.id });
+          this.mongoDB
+            .delete(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
@@ -88,51 +99,64 @@ export class DatabaseService {
 
   read(req: Request, res: Response): void {
     this.validator.refresh(req, res).validateDatabase().refresh();
-    if (!res.status) {
-        let query: string;
+    if (res.statusCode !== 400) {
+      let query: string;
       const { db } = req.body;
       switch (db) {
-          case 'mySql':
-              query = 'SELECT * FROM person;';
+        case 'mySql':
+          query = 'SELECT * FROM `person`';
           this.mySql.executeWithResponseData(query, res);
           break;
-          case 'mongoDB':
-              query = JSON.stringify({})
-          this.mongoDB.read(query, res);
+        case 'mongoDB':
+          query = JSON.stringify({});
+          this.mongoDB
+            .read(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
       }
     }
   }
-
   update(req: Request, res: Response): void {
     this.validator.refresh(req, res).validateId().validate().refresh();
-      if (!res.status) {
-          let query: string;
-          const { db } = req.body;
-          switch (db) {
-              case 'mySql':
-                  query = `UPDATE person SET FirstName = ${req.body.firstName}, LastName = ${req.body.lastName}, Age = ${req.body.age},
-        City = ${req.body.city}, PhoneNumber = ${req.body.phoneNumber}, Email = ${req.body.email}, Company = ${req.body.company} WHERE Id = ${req.body.id};`;
-                  this.mySql.execute(query, res);
-                  break;
-              case 'mongoDB':
-                  query = JSON.stringify(
-                      [{ _id: req.body.id },
-                      {
-                          $set: {
-                          firstName: req.body.firstName,
-                          lastName: req.body.lastName,
-                          age: req.body.age,
-                          phoneNumber: req.body.phoneNumber,
-                          email: req.body.email,
-                          city: req.body.city,
-                          company: req.body.company,
-                      }
-                },
-                      ])
-          this.mongoDB.update(query, res);
+    if (res.statusCode === 200) {
+      let query: string;
+      const { db } = req.body;
+      switch (db) {
+        case 'mySql':
+          query = `UPDATE person SET
+                  FirstName = ${req.body.firstName},
+                  LastName = ${req.body.lastName},
+                  Age = ${req.body.age},
+                  PhoneNumber = ${req.body.phoneNumber},
+                  Email = ${req.body.email},
+                  City = ${req.body.city},
+                  Company = ${req.body.company},
+                  WHERE Id = ${req.body.id};`;
+          
+          this.mySql.execute(query, res);
+          break;
+        case 'mongoDB':
+          query = JSON.stringify([
+            { _id: req.body.id },
+            {
+              $set: {
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                age: req.body.age,
+                phoneNumber: req.body.phoneNumber,
+                email: req.body.email,
+                city: req.body.city,
+                company: req.body.company,
+              },
+            },
+          ]);
+          this.mongoDB
+            .update(query)
+            .then((result) => res.json(result))
+            .catch((err) => err);
           break;
         default:
           res.status(409).end();
@@ -140,10 +164,9 @@ export class DatabaseService {
     }
   }
 
-  async findUser(req: Request, res: Response){
-    this.validator.refresh(req, res).validateLogin().refresh();
-
-    if (!res.status) {
+  async findUser(req: Request, res: Response) {
+    // this.validator.refresh(req, res).validateLogin().refresh();
+    if (res.statusCode === 200) {
       const query = JSON.stringify({ login: req.body.login });
       const user = await this.mongoDB.readUser(query);
       if (user) {
@@ -156,39 +179,37 @@ export class DatabaseService {
   }
 
   async createUser(req: Request, res: Response) {
-    this.validator.refresh(req, res).validateLogin().validatePassword().refresh();
-
-    if (!res.status) {
-      const hashPassword = await bcrypt.hash(req.body.password, 7, (hash) => hash);
-      const query = JSON.stringify({
-        login: req.body.login,
-        password: hashPassword
+    // this.validator.refresh(req, res).validateLogin().validatePassword().refresh();
+    if (res.statusCode === 200) {
+      let query;
+      return bcrypt.hash(req.body.password, 7).then((result) => {
+        query = JSON.stringify({
+          login: req.body.login,
+          password: result,
+        });
+        return this.mongoDB
+          .createUser(query)
+          .then((newUser) => newUser)
+          .catch((err) => err);
       });
-      const newUser = await this.mongoDB.createUser(query);
-      if (newUser) {
-        return newUser;
-      }
-      return false;
     }
-    res.status(400).end();
-    return false;
   }
-  
+
   async updateUser(req: Request, res: Response) {
     this.validator.refresh(req, res).validateLogin().validatePassword().refresh();
-
-    if (!res.status) {
+    if (res.statusCode === 200) {
       const hashPassword = await bcrypt.hash(req.body.newPassword, 7, (hash) => hash);
       const query = JSON.stringify([
         { _id: req.body.id },
         {
           $set: {
             login: req.body.newLogin,
-            password: hashPassword
-          }
-        }]);
-       const newUser = await this.mongoDB.updateUser(query);
-       if (newUser) {
+            password: hashPassword,
+          },
+        },
+      ]);
+      const newUser = await this.mongoDB.updateUser(query);
+      if (newUser) {
         return newUser;
       }
       return false;

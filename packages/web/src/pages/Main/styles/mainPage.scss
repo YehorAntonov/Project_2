@@ -20,7 +20,7 @@
         height: 45px;
         background-color: $bg-panel;
         border-radius: $border-radius-panel;
-        // z-index: 9999;
+        cursor: pointer;
         z-index: 3;
     }
     &__bd{
@@ -162,7 +162,7 @@
         text-align: center;
         font-size: xx-large;
         color: black;
-        display: none;
+        // display: none;
     }
 }
 .fields, .info{

@@ -48,7 +48,7 @@ export class ValidationService {
             this.valid = false;
         }
         const { db } = this.req.body;
-        if (db !== 'mySql' || db !== 'mongoDB') {
+        if (db !== 'mySql' && db !== 'mongoDB') {
             this.res.status(400).end();
             this.valid = false;
         }
